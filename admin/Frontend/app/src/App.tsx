@@ -4,7 +4,7 @@ import { HashRouter, Route, Routes } from "react-router-dom";
 import TasksPage from './Components/HashPages/TasksPage';
 import WordsPage from './Components/HashPages/WordsPage';
 import UsersPage from './Components/HashPages/UsersPage';
-import TasksBlock from './Components/HashPages/TasksPage/Tasks/TasksBlock';
+import TasksPresenter from './Components/HashPages/TasksPage/Tasks/TaskPresenter';
 
 function App() {
     return (
@@ -12,7 +12,7 @@ function App() {
             <Menu/>
             <Routes>
                 <Route path="/create-tasks" element={<TasksPage/>}/>
-                <Route path="/tasks" element={<TasksBlock/>}/>
+                <Route path="/tasks" element={<TasksPresenter/>}/>
                 <Route path="/words" element={<WordsPage/>}/>
                 <Route path="/users" element={<UsersPage/>}/>
             </Routes>

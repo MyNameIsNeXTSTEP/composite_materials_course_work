@@ -2,3 +2,4 @@ node_modules
 .vscode
 .nvimlog
 .env
+yarn.lock

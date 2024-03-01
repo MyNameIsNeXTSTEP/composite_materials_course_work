@@ -40,6 +40,17 @@ app.post('/api/post-task', (req, res) => {
     res.send({ ok: true, message: 'Task is posted succefully' });
 })
 
+app.get('/api/get-all-tasks', async (req, res) => {
+    const allTasks = await new DBQuery(mysql).call('SELECT * FROM tasks');
+    if (!allTasks) throw new Error('[API][get-all-tasks] no tasks erorr');
+    console.log(allTasks, '__ALL_TASKS__');
+    res.statusCode = 200;
+    res.send({
+        ok: true,
+        body: allTasks,
+    });
+})
+
 app.listen(PORT, () => {
     console.log(`Server listening on http://localhost:${PORT}`);
 });

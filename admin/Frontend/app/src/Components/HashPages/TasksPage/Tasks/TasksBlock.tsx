@@ -1,19 +1,29 @@
+import { ITask } from '~/src/types';
 import * as ST from "./styled";
 
-/**
- * 
- * @param tasks
- * @returns ST.TaskCard[]
- */
-
-const TasksBlock = (tasks): JSX.Element => {
-    const tasksTest = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+const TasksBlock = (tasks: { tasks: ITask[] }): JSX.Element => {
+    const toDisplay = tasks.tasks;
+    if (!toDisplay || !Array.isArray(toDisplay)) return null;
     return <ST.Container>
-        {tasksTest.map(
-            (taskTest, id) => <ST.TaskCard>
-                <p key={id}>{taskTest}</p>
-            </ST.TaskCard>
-        )}
+        {
+            toDisplay.map((task) => {
+                return <ST.TaskCard>
+                    <div>
+                        <p>ID: {task.id}; Название: {task.title}</p>
+                        <p>Описание: {task.description}</p>
+                        <p>Изображение: {task.image}</p>
+                    </div>
+                    <div>
+                        Дата создания: {task.created_at};
+                        Таймер игры: {task.default_timer_min}:{task.default_timer_sec}
+                        Бонус таймер 3 букв: {task.bonus_timer_3_letters}
+                        Бонус таймер 4 букв: {task.bonus_timer_4_letters}
+                        Бонус таймер 5 букв: {task.bonus_timer_5_letters}
+                        Бонус таймер 6+ букв: {task.bonus_timer_6_plus_letters}
+                    </div>
+                </ST.TaskCard>
+            })
+        }
     </ST.Container>
 };
 

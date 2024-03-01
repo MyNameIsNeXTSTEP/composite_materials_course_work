@@ -8,12 +8,13 @@ export const Container = styled.div`
 `;
 
 export const TaskCard = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    positio: relative;
-    width: 200px;
-    height: 150px;
+    display: block;
+    // justify-content: center;
+    // align-items: center;
+    position: relative;
+    width: 250px;
+    height: 300px;
     border: 1px solid white;
     margin: 50px;
+    padding: 5px;
 `;

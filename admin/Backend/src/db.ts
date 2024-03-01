@@ -16,14 +16,13 @@ export class DBQuery {
     public async call (query: string) {
         try {
             const res = await this.dbConn.query(query).then((res: Object[]) => res[0]);
-            this.dbConn.INSERT
-            console.log(res);
             return res;
         } catch (error) {
             console.log(error);
         }
         finally {
             this.dbConn.end();
+            console.log('DB connection is close');
         }
     }
     public insert<T>(table: string, insertObj: T) {
@@ -31,6 +30,3 @@ export class DBQuery {
         this.call(query);
     }
 };
-
-// new DBQuery(mysql).insert<ITask>('tasks', obj);
-// new DBQuery(mysql).call('SELECT * FROM tasks');

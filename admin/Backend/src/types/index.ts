@@ -10,5 +10,9 @@ export interface ITask {
     bonus_timer_3_letters: number,
     bonus_timer_4_letters: number,
     bonus_timer_5_letters: number,
-    bonus_timer_6_plus_letters: number
+    bonus_timer_6_plus_letters: number,
+    is_active: boolean | string | number,
+    is_published: boolean | string | number,
+    publication_date: string,
+    created_at: string,
 };
