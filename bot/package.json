@@ -1,0 +1,9 @@
+{
+  "name": "bot",
+  "version": "1.0.0",
+  "description": "Telegram \"Angry letters\" play bot",
+  "main": "main.ts",
+  "author": "Gadzhiev Islam",
+  "license": "MIT",
+  "private": true
+}
