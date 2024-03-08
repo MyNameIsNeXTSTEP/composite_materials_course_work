@@ -5,17 +5,24 @@ dotenv.config();
 const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const bot = new TelegramBot(TELEGRAM_BOT_TOKEN, { polling: true });
 
-bot.onText(/\/start (.+)/, (msg, match) => {
-  const chatId = msg.chat.id;
-  const resp = match[1];
-  console.log(chatId, resp)
-  bot.sendMessage(chatId, resp);
+bot.onText(/\/start/, async (msg, match) => {
+    const chatId = msg.chat.id;
+    await bot.sendMessage(chatId, 'check the button', {
+        reply_markup: {
+            inline_keyboard: [
+                [{ text: 'button', web_app: { url : 'https://ya.ru' }}]
+            ]
+        }
+    });
 });
 
-// bot.on('message', (msg) => {
-//   if (msg.text === '/start') {
-//     console.log(1);
-//   }
-//   const chatId = msg.chat.id;
-//   bot.sendMessage(chatId, 'Received your message');
+// bot.on('message', async (msg) => {
+//     if (msg.text === '/start') {
+//         const chatId = msg.chat.id;
+//         await bot.sendMessage(chatId, 'check the button', {
+//             reply_markup: {
+//                 keyboard: [{ text: 'button'}]
+//             }
+//         });
+//     }
 // });
