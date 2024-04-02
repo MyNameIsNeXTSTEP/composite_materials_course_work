@@ -21,6 +21,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "*.ts"],
+  "include": ["src", "*.ts", "./tsx", "bot-api-package/api-package.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -15,14 +15,3 @@ bot.onText(/\/start/, async (msg, match) => {
         }
     });
 });
-
-// bot.on('message', async (msg) => {
-//     if (msg.text === '/start') {
-//         const chatId = msg.chat.id;
-//         await bot.sendMessage(chatId, 'check the button', {
-//             reply_markup: {
-//                 keyboard: [{ text: 'button'}]
-//             }
-//         });
-//     }
-// });

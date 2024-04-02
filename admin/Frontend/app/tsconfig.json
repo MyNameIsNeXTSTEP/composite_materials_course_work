@@ -22,10 +22,10 @@
     "noFallthroughCasesInSwitch": true,
     // "rootDir": ".",
     "paths": {
-        "~/*": ["./*"],
-        "@api-package/*": [
-            "../api-package/*"
-        ],
+      "~/*": ["./*"],
+      "@api-package/*": [
+          "../api-package/*"
+      ],
     }
   },
   "include": ["src", "api-package"],
