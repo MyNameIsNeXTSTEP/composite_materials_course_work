@@ -1,5 +1,5 @@
 {
-    "name": "@api-package",
+    "name": "api-package",
     "version": "1.0.0",
     "dependencies": {
         "cross-env": "^7.0.3"

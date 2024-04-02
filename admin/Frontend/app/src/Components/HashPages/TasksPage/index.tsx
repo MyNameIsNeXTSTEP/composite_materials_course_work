@@ -1,5 +1,5 @@
 import { useState } from "react"
-import * as ST from './styled';
+import * as ST from './styled.ts';
 import { IFormData, imageForFormReq } from '../../../types/index.ts'
 
 import Timer from "./Timers/Timer.tsx";
