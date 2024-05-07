@@ -2,9 +2,6 @@ import { useState } from "react"
 import * as ST from './styled.ts';
 import { IFormData, imageForFormReq } from '../../../types/index.ts'
 
-import Timer from "./Timers/Timer.tsx";
-import BonusTimer from "./Timers/BonusTimer.tsx";
-
 const TasksPage = (): JSX.Element => {
     const [saveStatus, updateSaveStatus] = useState('');
     const [taskImageFile, updateTaskImageFile] = useState('');
@@ -58,13 +55,13 @@ const TasksPage = (): JSX.Element => {
     };
 
     return <ST.PageWrapper>
-        <h2>Создание новое задание</h2>
+        <h2>Добавление нового материала/товара</h2>
         <form id='task_post_form' onSubmit={inputChangeHandler}>
             <ST.RowContainer>
                 <ST.ClmnContainer>
-                    <h3>Заголовок</h3>
-                        <ST.StandartInput type='text' name='title'/>
-                    <h3>Текст</h3>
+                    <h3>Название</h3>
+                        <ST.StandartInput type='text' name='name'/>
+                    <h3>Описание</h3>
                         <ST.TextDescriptionInput name='description'/>
                 </ST.ClmnContainer>
                 <ST.ClmnContainer>
@@ -75,22 +72,8 @@ const TasksPage = (): JSX.Element => {
                             onChange={event => processUploadedImage(event.target.files)}
                         />
                     <ST.TaskImage src={taskImageFile}/>
-                    <h3>Дополнительная графика</h3>
-                        <ST.ExtraGraphic/>
-                    <h3>Буквы для задания</h3>
+                    <h3>?</h3>
                         <ST.StandartInput name='letters'/>
-                </ST.ClmnContainer>
-                <ST.ClmnContainer>
-                    <h3>Таймер задания</h3>
-                    <Timer
-                        name='default_timer'
-                        errorTextProp='Ошибка, пожалуйста обновите таймер в соответствие с ограничениями: [макс. 4 мин: макс. 49сек]'
-                    />
-                    <h3>Таймер бонусов</h3>
-                    <BonusTimer
-                        name='bonus_timer'
-                        errorTextProp='Ошибка, пожалуйста обновите таймер в соответствие с ограничениями: [макс. 4 мин: макс. 49сек]'
-                    />
                 </ST.ClmnContainer>
             </ST.RowContainer>
             <ST.SaveButton id='submit_btn' type="submit">

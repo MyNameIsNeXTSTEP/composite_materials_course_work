@@ -1,7 +1,7 @@
 import { useState, useCallback, useEffect } from 'react';
 import APIRequest from '@api-package/index';
 import { TRequestMethod } from '@api-package/types';
-import TasksBlock from './TasksBlock';
+import MaterialsBlock from './MaterialsBlock';
 import { ITask } from '~/src/types';
 
 type TTasksResponse = {
@@ -24,11 +24,11 @@ const TasksPresenter = (): JSX.Element => {
     }, []);
 
     useEffect(() => {
-        getTasks().then(res => updateTasks(res))
+        // getTasks().then(res => updateTasks(res))
     }, []);
     console.log(tasks, 'pre-tasks');
 
-    return <TasksBlock tasks={tasks.body}/>
+    return <MaterialsBlock tasks={tasks.body}/>
 }
 
 export default TasksPresenter;

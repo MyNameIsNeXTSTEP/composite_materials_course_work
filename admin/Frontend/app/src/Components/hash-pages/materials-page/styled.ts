@@ -40,10 +40,6 @@ export const TaskImage = styled.img`
     height: auto;
 `;
 
-export const ExtraGraphic = styled.img`
-
-`;
-
 export const RowContainer = styled.div`
     position: relative;
     display: flex;
