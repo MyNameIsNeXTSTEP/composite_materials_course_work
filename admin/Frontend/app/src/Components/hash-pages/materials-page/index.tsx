@@ -24,7 +24,7 @@ const TasksPage = (): JSX.Element => {
 
     const submitFormData = () => {
         try {
-            fetch('http://localhost:3000/api/post-task', {
+            fetch('http://localhost:3000/api/add-material', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -56,7 +56,7 @@ const TasksPage = (): JSX.Element => {
 
     return <ST.PageWrapper>
         <h2>Добавление нового материала/товара</h2>
-        <form id='task_post_form' onSubmit={inputChangeHandler}>
+        <form id='add-material-form' onSubmit={inputChangeHandler}>
             <ST.RowContainer>
                 <ST.ClmnContainer>
                     <h3>Название</h3>
@@ -72,8 +72,6 @@ const TasksPage = (): JSX.Element => {
                             onChange={event => processUploadedImage(event.target.files)}
                         />
                     <ST.TaskImage src={taskImageFile}/>
-                    <h3>?</h3>
-                        <ST.StandartInput name='letters'/>
                 </ST.ClmnContainer>
             </ST.RowContainer>
             <ST.SaveButton id='submit_btn' type="submit">

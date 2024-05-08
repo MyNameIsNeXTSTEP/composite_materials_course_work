@@ -2,33 +2,26 @@ import { useState, useCallback, useEffect } from 'react';
 import APIRequest from '@api-package/index';
 import { TRequestMethod } from '@api-package/types';
 import MaterialsBlock from './MaterialsBlock';
-import { ITask } from '~/src/types';
-
-type TTasksResponse = {
-    body: {
-        tasks: ITask[];
-    }
-};
+import { IMaterial } from '~/src/types';
 
 const TasksPresenter = (): JSX.Element => {
-    const [tasks, updateTasks] = useState({ } as TTasksResponse);
+    const [materials, updateMaterials] = useState({ } as IMaterial[]);
     const request = {
-        uri: '/api/get-all-tasks',
+        uri: '/api/get-all-materials',
         method: TRequestMethod.GET,
         headers: {}
     };
 
-    const getTasks = useCallback(async () => {
+    const getMaterials = useCallback(async () => {
         const res = await new APIRequest(request).doRequest();
         return res.isSuccess ? res.payload : null
     }, []);
 
     useEffect(() => {
-        // getTasks().then(res => updateTasks(res))
+        getMaterials().then(res => updateMaterials(res.materials))
     }, []);
-    console.log(tasks, 'pre-tasks');
 
-    return <MaterialsBlock tasks={tasks.body}/>
+    return <MaterialsBlock materials={materials}/>
 }
 
 export default TasksPresenter;

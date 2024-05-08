@@ -1,4 +1,4 @@
-import './Styles/App.css'
+import './styles/App.css'
 import Menu from './components/menu/index';
 import { HashRouter, Route, Routes } from "react-router-dom";
 import TasksPage from './components/hash-pages/materials-page';

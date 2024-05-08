@@ -2,18 +2,16 @@ export interface IFormData {
     name: string,
     description: string,
     image?: imageForFormReq | null,
-    letters: string,
 };
 
-export interface ITask {
+export interface IMaterial {
     id?: number,
     name: string,
-    description: string,
-    image: string,
-    letters: string,
-    is_active: boolean | string | number,
-    is_published: boolean | string | number,
-    created_at: string,
+    description?: string,
+    image?: string,
+    is_on_sale?: boolean | string | number,
+    amount?: number,
+    createdAt: string,
 }
 
 export type imageForFormReq = {
