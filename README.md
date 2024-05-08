@@ -1,6 +1,3 @@
 # Angry-letters
 
-**Start dev**:
-- Admin panel (/admin)
-    - Backend: `cd admin/Backend` -> `yarn install && yarn start`
-    - Frontend: `cd admin/Frontend/app` -> `yarn install && yarn start`
+Run the app (from the root dir): `pm2 start ecosystem.config.cjs`
