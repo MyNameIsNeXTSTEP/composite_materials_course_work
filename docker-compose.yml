@@ -1,0 +1,51 @@
+# docker-compose.yml
+
+version: "3.8"
+
+services:
+  root:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+
+  frontend:
+    build:
+      context: ./admin/frontend
+    ports:
+      - "3001:3001"
+    networks:
+      - app-network
+
+  db:
+    image: mysql:8
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ""
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: composite_materials
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./backend/dump.sql/dump.sql:/docker-entrypoint-initdb.d/dump.sql
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  db_data:
